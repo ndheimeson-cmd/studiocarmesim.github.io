@@ -1,46 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Studios Carmesim</title>
+  <title>Carmesim ™</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-  body {
-    font-family: Arial, Helvetica, sans-serif;
-    max-width: 800px;
-    margin: 60px auto;
-    padding: 0 20px;
-    line-height: 1.6;
-    color: #222;
-  }
+    /* ===== RESET BÁSICO ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  h1 {
-    font-size: 2.2em;
-    margin-bottom: 20px;
-  }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #d6d6d6, #bfc2c5);
+      color: #111;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+    }
 
-  p {
-    margin-bottom: 16px;
-  }
-</style>
+    /* ===== CONTAINER ===== */
+    .container {
+      width: 100%;
+      max-width: 900px;
+    }
+
+    /* ===== TOPO ===== */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .brand {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #8b1d2c; /* Carmesim */
+    }
+
+    .lang-switch button {
+      background: transparent;
+      border: 1px solid #999;
+      padding: 6px 12px;
+      margin-left: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .lang-switch button:hover {
+      border-color: #8b1d2c;
+      color: #8b1d2c;
+    }
+
+    /* ===== BLOCO VIDRO FOSCO ===== */
+    .glass {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .glass h2 {
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+      color: #222;
+    }
+
+    .glass p {
+      margin-bottom: 14px;
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* ===== IDIOMAS ===== */
+    .lang {
+      display: none;
+    }
+
+    .lang.active {
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #333;
+      margin-top: 10px;
+    }
+  </style>
 </head>
+
 <body>
 
-  <h1>Studios Carmesim</h1>
+  <div class="container">
 
-  <p>
-    Studios Carmesim is an independent initiative focused on automation,
-    organization of processes, and practical solutions using artificial intelligence.
-  </p>
+    <header>
+      <div class="brand">Carmesim ™</div>
+      <div class="lang-switch">
+        <button onclick="setLang('pt')">PT</button>
+        <button onclick="setLang('en')">EN</button>
+      </div>
+    </header>
 
-  <p>
-    The work is centered on clarity, structure, and responsible use of technology,
-    prioritizing functional solutions over unnecessary complexity.
-  </p>
+    <!-- PORTUGUÊS -->
+    <div id="pt" class="lang active glass">
+      <h2>Sobre</h2>
+      <p>
+        Carmesim ™ é uma iniciativa voltada à criação e organização de sistemas,
+        fluxos e estruturas, utilizando a tecnologia — inclusive a inteligência artificial —
+        como ferramenta, não como fim.
+      </p>
+      <p>
+        Acreditamos que todo avanço técnico deve estar subordinado a propósito,
+        ordem e responsabilidade. Sistemas bem construídos servem para trazer clareza,
+        reduzir ruído e devolver tempo e atenção ao que realmente importa.
+      </p>
+      <p>
+        Nosso trabalho parte do entendimento de que o ser humano não existe para servir
+        máquinas ou processos. Ferramentas existem para servir a vida humana.
+        Quando sistemas geram confusão, dependência ou esvaziamento,
+        deixam de cumprir sua função.
+      </p>
+      <p>
+        Atuamos com sobriedade e limite, desenvolvendo soluções que organizam,
+        estruturam e simplificam — sem substituir discernimento,
+        consciência ou responsabilidade pessoal.
+      </p>
+      <p>
+        Tecnologia saudável é aquela que cria espaço para o humano,
+        e não a que o consome.
+      </p>
+    </div>
 
-  <p>
-    This website serves as an institutional reference.
-  </p>
+    <!-- ENGLISH -->
+    <div id="en" class="lang glass">
+      <h2>About</h2>
+      <p>
+        Carmesim ™ is an initiative focused on the creation and organization of systems,
+        flows, and structures, using technology — including artificial intelligence —
+        as a tool, not as an end.
+      </p>
+      <p>
+        We believe that every technical advancement must be subject to purpose,
+        order, and responsibility. Well-designed systems bring clarity,
+        reduce noise, and return time and attention to what truly matters.
+      </p>
+      <p>
+        Our work is grounded in the understanding that human life does not exist
+        to serve machines or processes. Tools exist to serve human life.
+        When systems generate confusion, dependency, or mental exhaustion,
+        they cease to fulfill their purpose.
+      </p>
+      <p>
+        We operate with sobriety and clear limits, developing solutions that organize,
+        structure, and simplify — without replacing discernment,
+        awareness, or personal responsibility.
+      </p>
+      <p>
+        Healthy technology is that which creates space for the human,
+        not that which consumes it.
+      </p>
+    </div>
+
+    <footer>
+      © Carmesim ™ — Systems, flows and structures.
+    </footer>
+
+  </div>
+
+  <script>
+    function setLang(lang) {
+      document.getElementById('pt').classList.remove('active');
+      document.getElementById('en').classList.remove('active');
+      document.getElementById(lang).classList.add('active');
+    }
+  </script>
 
 </body>
-</html>
+</html
